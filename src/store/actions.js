@@ -16,7 +16,7 @@ export const getIndexImage = ({commit}) => {
       return commit(types.GET_INDEX_IMG, {indexImg: img})
     }
     commit(types.GET_INDEX_IMG, {indexImg: response.data.img})
-  }, response => {
+  }, err => {
     commit(types.GET_INDEX_IMG, {indexImg: img})
   })
 }

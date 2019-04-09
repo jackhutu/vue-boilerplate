@@ -1,17 +1,18 @@
 <template>
-  <div>
+  <div class="home-box">
     Hello World
+    <div class="cover-img" :style="{ backgroundImage: 'url(' + indexImg + ')' }"></div>
   </div>
 </template>
 <script>
 
 import { mapState,mapActions } from 'vuex'
+import './index.less'
 
 export default {
-  components:{ Sidebar,Footerbar,Tags,Articles,Loadmore },
   computed: {
     ...mapState({
-      indexImg: ({globalVal}) => globalVal.indexImg,      
+      indexImg: ({local}) => local.indexImg,      
     })
   },  
   created(){

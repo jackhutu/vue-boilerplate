@@ -47,7 +47,7 @@ const config = {
       }
     }),
     new CopyWebpackPlugin([{
-      from: path.join(__dirname, 'src/CNAME'), to: path.join(__dirname, 'dist')
+      from: path.join(__dirname, 'src/copy.text'), to: path.join(__dirname, 'dist')
     }])
   ],
   module: {
@@ -128,7 +128,7 @@ const config = {
     ]
   },
   resolve: {
-    extensions: ['.js','.vue','.scss','.css'],
+    extensions: ['.js','.vue','.scss','.css', '.less'],
     alias: {
       components: path.resolve(__dirname, 'src/components'),
       actions: path.resolve(__dirname, 'src/store/actions'),
@@ -172,11 +172,12 @@ if (debug) {
       'Access-Control-Allow-Headers': 'X-Requested-With, content-type, Authorization'
     },
     proxy: {
-      '/api3': {
-        'target': 'http://172.21.247.157:7070/api3',
+      '/api': {
+        'target': 'http://yapi.demo.qunar.com/mock/70113/api',
         'changeOrigin': true,
+        logLevel: 'debug',
         'pathRewrite': {
-          '^/api3': ''
+          '^/api': ''
         }
       }
     }

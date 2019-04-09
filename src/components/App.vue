@@ -1,5 +1,5 @@
 <template>
-  <div class="top-box">
+  <div class="app-box">
     <router-view></router-view>
     <Toaster></Toaster>
   </div>
